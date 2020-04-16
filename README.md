@@ -1,3 +1,21 @@
+# One more thing for iOS
+The official documentation mentions that it includes support for iOS, but after some exploration, it is found that TDLib can only run json client on iOS, and cannot provide full-featured support.
+This is a very strange thing since it can support Mac and Linux and the cpp code has nothing special.
+So, here we provide iOS full-featured build support 😆.
+The result of the build is already located at ios_build/dest based on version 1.6, If you need to build your own, follow the steps below：
+
+```
+mkdir native_build
+cd native_build
+cmake ..
+cmake --build . --target prepare_cross_compiling
+
+cd ../ios_build
+cmake .. -G Xcode -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=.ios-cmake/ios.toolchain.cmake  -DPLATFORM=OS64COMBINED  -DOPENSSL_INCLUDE_DIR=/Users/twotrees/Documents/src/OtherCode/td/ios_build/openssl/include/ -DOPENSSL_LIBRARIES=/Users/twotrees/Documents/src/OtherCode/td/ios_build/openssl/lib -DCMAKE_INSTALL_PREFIX=./dest
+
+cmake --build . --config Release --target install
+```
+
 # TDLib
 
 TDLib (Telegram Database library) is a cross-platform library for building [Telegram](https://telegram.org) clients. It can be easily used from almost any programming language.
