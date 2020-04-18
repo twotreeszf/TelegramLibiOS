@@ -11,7 +11,7 @@ cmake ..
 cmake --build . --target prepare_cross_compiling
 
 cd ../ios_build
-cmake .. -G Xcode -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=.ios-cmake/ios.toolchain.cmake  -DPLATFORM=OS64COMBINED  -DOPENSSL_INCLUDE_DIR=/Users/twotrees/Documents/src/OtherCode/td/ios_build/openssl/include/ -DOPENSSL_LIBRARIES=/Users/twotrees/Documents/src/OtherCode/td/ios_build/openssl/lib -DCMAKE_INSTALL_PREFIX=./dest
+cmake .. -G Xcode -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=./ios.toolchain.cmake  -DPLATFORM=OS  -DOPENSSL_INCLUDE_DIR=/Users/twotrees/Documents/src/OtherCode/TelegramLibiOS/ios_build/openssl/include/ -DOPENSSL_LIBRARIES=/Users/twotrees/Documents/src/OtherCode/TelegramLibiOS/ios_build/openssl/lib -DCMAKE_INSTALL_PREFIX=./dest
 
 cmake --build . --config Release --target install
 ```
